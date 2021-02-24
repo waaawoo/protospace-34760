@@ -52,3 +52,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# インストール後rails g devise:installを実行
+# その後rails g devise:userを実行
+# マイグレーションファイルに記載しマイグレーションする
+gem 'devise'
