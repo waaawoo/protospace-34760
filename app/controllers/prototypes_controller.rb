@@ -17,6 +17,10 @@ class PrototypesController < ApplicationController
     end
   end
 
+  def show
+
+  end
+
   private
 
   # 許可するパラメータを指定（imageは画像用）
