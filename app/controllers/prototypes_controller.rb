@@ -1,7 +1,8 @@
 class PrototypesController < ApplicationController
 
   def index
-    @prototype = Prototype.all
+    # 紐づくユーザー情報も取得
+    @prototype = Prototype.includes(:user)
   end
 
   def new
@@ -23,6 +24,7 @@ class PrototypesController < ApplicationController
     @comment = Comment.new
     # プロトタイプに紐づているコメントとユーザー情報を1回で取得
     @comments = @prototype.comments.includes(:user)
+
   end
 
   def edit
