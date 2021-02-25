@@ -19,6 +19,10 @@ class PrototypesController < ApplicationController
 
   def show
     @prototype = Prototype.find(params[:id])
+    # コメント後投稿後にプロトタイプのshowでコメントを扱うために作成
+    @comment = Comment.new
+    # プロトタイプに紐づているコメントとユーザー情報を1回で取得
+    @comments = @prototype.comments.includes(:user)
   end
 
   def edit
