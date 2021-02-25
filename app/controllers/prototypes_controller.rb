@@ -5,17 +5,22 @@ class PrototypesController < ApplicationController
   end
 
   def new
-
+    @prototype = Prototype.new
   end
 
   def create
-
+    @prototype = Prototype.new(prototype_params)
+    if @prototype.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private
 
   # 許可するパラメータを指定（imageは画像用）
   def prototype_params
-    params.require(:prototype).permit(:title, :image).merge(user_id: current_user.id)
+    params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
   end
 end
