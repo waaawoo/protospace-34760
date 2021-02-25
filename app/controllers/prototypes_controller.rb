@@ -4,6 +4,14 @@ class PrototypesController < ApplicationController
 
   end
 
+  def new
+
+  end
+
+  def create
+
+  end
+
   private
 
   # 許可するパラメータを指定（imageは画像用）
