@@ -1,5 +1,8 @@
 class Comment < ApplicationRecord
-  belongs_to :user
 
+  # バリデーション
+  validates :text, presence: true
+  # アソシエーション
+  belongs_to :user
   belongs_to :prototype
 end
