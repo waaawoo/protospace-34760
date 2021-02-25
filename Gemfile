@@ -52,7 +52,25 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-# インストール後rails g devise:installを実行
+
+# ---------------- devise導入 -------------------------
+# 必要なGemをインストール
+gem 'devise'
+# bundle install後rails g devise:installを実行
 # その後rails g devise:userを実行
 # マイグレーションファイルに記載しマイグレーションする
-gem 'devise'
+
+
+# ---------------- 画像登録機能 -------------------------
+# 1 brew install imagemagick を実行
+#  ※エラーが出る場合 convert -versionで導入が確認できれば問題ない
+# 2 必要なGemをインストールする
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
+# 3 bundle install 実行
+# 4 ローカルサーバの再起動
+# 5 rails active_storage:install でアプリケーションをインストール
+# 6 rails db:migrate でStrorageに関するマイグレーションを作成
+# 7 DBにactive_storageに関するテーブルができていれば成功
+# 8 プロトタイムmodelへアソシエーションを記載(カラムの追加は必要なし)
+# 9 画像保存を許可するストロングパラメータをコントローラーへ記載

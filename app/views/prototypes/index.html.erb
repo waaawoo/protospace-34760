@@ -9,7 +9,11 @@
       <% end %>
     <%# // ログインしているときは上記を表示する %>
     <div class="card__wrapper">
-      <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
+      <%# collectionメソッドを使う事でeachの役割を果たしてくれる
+          indexアクションでallメソッドで取得したデータを
+          テンプレートないで要素分繰り返してくれる
+       %>
+      <%= render partial: "prototype", collection: @prototype %>
     </div>
   </div>
 </main>
