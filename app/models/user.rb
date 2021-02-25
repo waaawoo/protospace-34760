@@ -11,4 +11,5 @@ class User < ApplicationRecord
   validates :position, presence: true
 
   # アソシエーション
+  has_many :prototypes
 end
