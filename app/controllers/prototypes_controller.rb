@@ -1,7 +1,11 @@
 class PrototypesController < ApplicationController
+  # ログインしていないユーザーのアクセス制限
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+
 
   def index
-    @prototype = Prototype.all
+    # 紐づくユーザー情報も取得
+    @prototype = Prototype.includes(:user)
   end
 
   def new
@@ -23,10 +27,15 @@ class PrototypesController < ApplicationController
     @comment = Comment.new
     # プロトタイプに紐づているコメントとユーザー情報を1回で取得
     @comments = @prototype.comments.includes(:user)
+
   end
 
   def edit
     @prototype = Prototype.find(params[:id])
+    # 投稿者以外が編集できないように
+    unless @prototype.user_id == current_user.id
+      redirect_to action: :index
+    end
   end
 
   def update
