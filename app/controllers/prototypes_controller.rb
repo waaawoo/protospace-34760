@@ -33,6 +33,11 @@ class PrototypesController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+
+  end
+
   private
 
   # 許可するパラメータを指定（imageは画像用）
