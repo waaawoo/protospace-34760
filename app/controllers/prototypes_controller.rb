@@ -21,6 +21,13 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.find(params[:id])
   end
 
+  def edit
+
+  end
+
+  def update
+
+  end
   private
 
   # 許可するパラメータを指定（imageは画像用）
