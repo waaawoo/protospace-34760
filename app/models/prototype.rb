@@ -7,6 +7,8 @@ class Prototype < ApplicationRecord
   validates :image, presence: true
   # アソシエーション
   belongs_to :user
+  # プロトタイプが削除されたコメントも削除するdependent: :destory
+  has_many :comments, dependent: :destroy
   # image登録用
   has_one_attached :image
 end
